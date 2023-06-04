@@ -14,35 +14,37 @@
 <body>
  
     <header>
-            <nav class="bottom-bar">
-                <div class="logo">
-                    <img src="F:\AMITY UNIVERSITY\4TH YEAR\cancerquest-high-resolution-logo-color-on-transparent-background (1).png" alt="Logo" class="logoimg">
-                </div>
-                <ul class="bottom-bar__list">
-                    <div class="bottom-bar__active-indicator"></div>
-                    <li class="bottom-bar__link"><span class="material-symbols-outlined">
-                        <i class="fa-solid fa-house"></i>
-                      </span>Home</i>
-                    <li class="bottom-bar__link"><span class="material-symbols-outlined">
-                      <i class="fa fa-user" aria-hidden="true"></i>
-                      </span>Profile</li>
-                    <li class="bottom-bar__link"><span class="material-symbols-outlined">
-                      <i class="fa fa-user-md" aria-hidden="true"></i>
-                      </span>Doctor</li>
-                    <li class="bottom-bar__link"><span class="material-symbols-outlined">
-                      <i class="fa fa-search" aria-hidden="true"></i>
-                      </span>Prediction</li>
-                    <li class="bottom-bar__link"><span class="material-symbols-outlined">
-                      <i class="fa fa-sign-out" aria-hidden="true"></i>
-                      </span>Sign Out</li>
-                  </ul>
-           
-        </nav>
+      <nav class="bottom-bar">
+        <div class="logo">
+            <img src="/static/css/bg.jpg" alt="Logo" class="logoimg">
+        </div>
+        <ul class="bottom-bar__list">
+            <div class="bottom-bar__active-indicator"></div>
+            <li class="bottom-bar__link"><span class="material-symbols-outlined">
+              <a class="navLink" href="/getstarted"> <i class="fa-solid fa-house"></i>
+              </span>Home</a></li> 
+            <!-- <li class="bottom-bar__link"><span class="material-symbols-outlined">
+              <a class="navLink" href="/profile"><i class="fa fa-user"></i>
+              </span>Profile</a></li> -->
+            <li class="bottom-bar__link"><span class="material-symbols-outlined">
+              <a class="navLink" href="/doctor"><i class="fa fa-user-md"></i>
+              </span>Doctor</a></li>
+            <li class="bottom-bar__link"><span class="material-symbols-outlined">
+              <a class="navLink" href="/choice"><i class="fa fa-search"></i>
+              </span>Prediction</a></li>
+            <li class="bottom-bar__link"><span class="material-symbols-outlined">
+              <a class="navLink" href="/logout"><i class="fa fa-sign-out"></i>
+              </span>Sign Out</a></li>
+          </ul>
+   
+</nav>
+
+
 
         <div class="bg-img">
             <div class="box">
-             <h3>If you need info regarding any attributes click here</h3><br>
-              <a class="button" href="#popup1">Let me Pop up</a>
+             <h3>If you need info regarding any attributes click here ⬇️</h3><br>
+              <a class="button" href="#popup1">CLICK ME</a>
             </div>
       
            <div id="popup1" class="overlay">
@@ -50,21 +52,30 @@
                 <h2>Hello</h2>
                     <a class="close" href="#">&times;</a>
                       <div class="content">
-                        Thank to pop me out of that button, but now i'm done so you can close this window.
+                        <b>Hormonal contraceptives</b> - 0: no hormonal contraceptives used ; 1: hormonal contraceptives used<br>
+                        <b>Hormonal contraceptives(years)</b> - 0-50: number of years for which hormonal contraceptives were used<br>
+                        <b>Dx</b> - 0: no unusual changes in the cervical region; 1:  unusual changes in the cervical region<br>
+                        <b>Dx(Cancer)</b> - 0: normal HPV or pap test result ; 1: ubnormal HPV or pap test result<br>
+                        <b>IUD</b> - 0: no usage of IUD's ; 1: high usage of  IUD's <br>
+                        <b>IUD(years)</b> - 1-50: number of years for which IUD's were used <br>
+                        <b>Smoke(packs/year)</b> - 0-100: number of smoke packs used per year<br>
+                        <b>STDs:condylomatosis</b> - 0: low risk of HPV virus present; 1: high risk of HPV virus present<br>
+                        <b>STDs:vulvo-perineal condylomatosis</b> - 0: low amount of HPV virus present ; 1: high amount of HPV virus present<br>
+
                       </div>
                 </div>
            </div>
       
-                <form action="{{ url_for('predict')}}"method="POST" class="container">
+                <form action='/cervpred'method="POST" class="container">
                     <h1>Cervical Cancer Prediction Form</h1><br>
                     <Table Border="0">
                         <TR>
                         <TD>Hormonal Contraceptives</TD>
-                        <TD><Input type="Text" Name="Hormonal Contraceptives" Placeholder="Values range : 0 -1 " Required="Required"></TD>
+                        <TD><Input type="Text" Name="Hormonal Contraceptives" Placeholder="Values range : 0 - 1 " Required="Required"></TD>
                         </TR>
                         <TR>
                         <TD>Hormonal Contraceptives (years)</TD>
-                        <TD><Input type="Text" Name="Hormonal Contraceptives (years)" Placeholder="Values range : 0 -30 " Required="Required"></TD>
+                        <TD><Input type="Text" Name="Hormonal Contraceptives (years)" Placeholder="Values range : 0 - 50 " Required="Required"></TD>
                         </TR>
                         <TR>
                         <TD>Dx</TD>
@@ -76,7 +87,7 @@
                         </TR>
                         <TR>
                         <TD>IUD</TD>
-                        <TD><Input type="Text" Name="IUD" Placeholder="Values range : 0 - 1" Required="Required"></TD>
+                        <TD><Input type="Text" Name="IUD" Placeholder="Values range : 0 - 1(count)" Required="Required"></TD>
                         </TR>
                         <TR>
                         <TD>Dx:HPV</TD>
@@ -84,27 +95,28 @@
                         </TR>
                         <TR>
                         <TD>IUD (years)</TD>
-                        <TD><Input type="Text" Name="IUD (years)" Placeholder="Values range : 0 - 19" Required="Required"></TD>
+                        <TD><Input type="Text" Name="IUD (years)" Placeholder="Values range : 0 - 50" Required="Required"></TD>
                         </TR>
                         <TR>
                         <TD>Smokes (packs/year)</TD>
-                        <TD><Input type="Text" Name="Smokes (packs/year)" Placeholder="Values range : 0 - 37" Required="Required"></TD>
+                        <TD><Input type="Text" Name="Smokes (packs/year)" Placeholder="Values range : 0 - 100" Required="Required"></TD>
                         </TR>
                         <TR>
                         <TD>STDs:vulvo-perineal condylomatosis</TD>
-                        <TD><Input type="Text" Name="STDs:vulvo-perineal condylomatosis" Placeholder="Values range : 0 - 1" Required="Required"></TD>
+                        <TD><Input type="Text" Name="STDs:vulvo-perineal condylomatosis" Placeholder="Values range : 0 - 1(percent unit of blood)" Required="Required"></TD>
                         </TR>
                         <TR>
                         <TD>STDs:condylomatosis</TD>
-                        <TD><Input type="Text" Name="STDs:condylomatosis" Placeholder="Values range : 0 - 1" Required="Required"></TD>
+                        <TD><Input type="Text" Name="STDs:condylomatosis" Placeholder="Values range : 0 - 1(percent unit of blood)" Required="Required"></TD>
                         </TR>
                         <TR>
                       </Table>
       
-                    <Button type="Submit" Class="btn">PREDICT</Button>     
+                    <Button type="Submit" Class="btn">PREDICT</Button><br><br> 
+                    <h3 class="animate-charcter"> {{ prediction_text }}</h3>
                 
                   </form>
-                  {{ Prediction_text }} 
+                  
       </div>
       
       </header>
