@@ -14,35 +14,36 @@
 <body>
  
     <header>
-            <nav class="bottom-bar">
-                <div class="logo">
-                    <img src="F:\AMITY UNIVERSITY\4TH YEAR\cancerquest-high-resolution-logo-color-on-transparent-background (1).png" alt="Logo" class="logoimg">
-                </div>
-                <ul class="bottom-bar__list">
-                    <div class="bottom-bar__active-indicator"></div>
-                    <li class="bottom-bar__link"><span class="material-symbols-outlined">
-                        <i class="fa-solid fa-house"></i>
-                      </span>Home</i>
-                    <li class="bottom-bar__link"><span class="material-symbols-outlined">
-                      <i class="fa fa-user" aria-hidden="true"></i>
-                      </span>Profile</li>
-                    <li class="bottom-bar__link"><span class="material-symbols-outlined">
-                      <i class="fa fa-user-md" aria-hidden="true"></i>
-                      </span>Doctor</li>
-                    <li class="bottom-bar__link"><span class="material-symbols-outlined">
-                      <i class="fa fa-search" aria-hidden="true"></i>
-                      </span>Prediction</li>
-                    <li class="bottom-bar__link"><span class="material-symbols-outlined">
-                      <i class="fa fa-sign-out" aria-hidden="true"></i>
-                      </span>Sign Out</li>
-                  </ul>
-           
-        </nav>
+      <nav class="bottom-bar">
+        <div class="logo">
+            <img src="/static/css/bg.jpg" alt="Logo" class="logoimg">
+        </div>
+        <ul class="bottom-bar__list">
+            <div class="bottom-bar__active-indicator"></div>
+            <li class="bottom-bar__link"><span class="material-symbols-outlined">
+              <a class="navLink" href="/getstarted"> <i class="fa-solid fa-house"></i>
+              </span>Home</a></li> 
+            <!-- <li class="bottom-bar__link"><span class="material-symbols-outlined">
+              <a class="navLink" href="/profile"><i class="fa fa-user"></i>
+              </span>Profile</a></li> -->
+            <li class="bottom-bar__link"><span class="material-symbols-outlined">
+              <a class="navLink" href="/doctor"><i class="fa fa-user-md"></i>
+              </span>Doctor</a></li>
+            <li class="bottom-bar__link"><span class="material-symbols-outlined">
+              <a class="navLink" href="/choice"><i class="fa fa-search"></i>
+              </span>Prediction</a></li>
+            <li class="bottom-bar__link"><span class="material-symbols-outlined">
+              <a class="navLink" href="/logout"><i class="fa fa-sign-out"></i>
+              </span>Sign Out</a></li>
+          </ul>
+   
+</nav>
+
 
         <div class="bg-img">
             <div class="box">
-             <h3>If you need info regarding any attributes click here</h3><br>
-              <a class="button" href="#popup1">Let me Pop up</a>
+             <h3>If you need info regarding any attributes click here ⬇️</h3><br>
+              <a class="button" href="#popup1">CLICK ME</a>
             </div>
       
            <div id="popup1" class="overlay">
@@ -50,61 +51,69 @@
                 <h2>Hello</h2>
                     <a class="close" href="#">&times;</a>
                       <div class="content">
-                        Thank to pop me out of that button, but now i'm done so you can close this window.
+                        <b>Radius mean</b> - 0: lowest mean value of radius of the core tumor; 30: highest mean value of radius of the core tumor<br>
+                        <b>Perimeter mean</b> - 40: lowest mean value of the perimeter of tumor; 200: highest mean value of the perimeter of tumor<br>
+                        <b>Area mean</b> - 100:  lowest mean value of the area of core tumor; 2500:  highest mean value of the area of core tumor<br>
+                        <b>Concavity mean</b> -0: less severe tumor contour; 1: more severe tumor contour<br>
+                        <b>Concave points mean</b> - 0: less number of concave points on tumor; 1: maximum number of concave points on tumor<br>
+                        <b>Radius worst</b> - 0: lowest possible maximum value of the radius of the tumor; 40: highest possible maximum value of the radius of the tumor<br>
+                        <b>Perimeter worst</b> - 50: lowest possible maximum value of the perimeter of the tumor; 300: highest possible maximum value of the perimeter of the tumor<br>
+                        <b>Area worst</b> - 180: lowest possible maximum value of the area of the tumor; 4500: highest possible maximum value of the area of the tumor<br>
+                        <b>Concavity worst</b> - 0: lowest possible maximum value of the tumor contour; 2: highest possible maximum value of the tumor contour<br>
+                        <b>Concave points worst</b> - 0: lowest number of  maximum concave points on a tumor; 1: highest   number of  maximum concave points on a tumor<br>
                       </div>
                 </div>
            </div>
       
-                <form action="{{ url_for('predict')}}"method="POST" class="container">
+                <form action="/pred" method="POST" class="container">
                     <h1>Breast Cancer Prediction Form</h1><br>
                     
               <Table Border="0">
                 <TR>
-                <TD>First Value</TD>
-                <TD><Input type="Text" Name="First Value" Placeholder="Values range : 6.98 - 28.11" Required="Required"></TD>
+                <TD>Radius mean</TD>
+                <TD><Input type="Text" Name="First Value" Placeholder="Values range : 0 - 30 (um)" Required="Required"></TD>
                 </TR>
                 <TR>
-                <TD>Second Value</TD>
-                <TD><Input type="Text" Name="Second Value" Placeholder="Values range : 43.79 - 188.5" Required="Required"></TD>
+                <TD>Perimeter mean</TD>
+                <TD><Input type="Text" Name="Second Value" Placeholder="Values range : 40 - 200 (um)" Required="Required"></TD>
                 </TR>
                 <TR>
-                <TD>Third Value</TD>
-                <TD><Input type="Text" Name="Third Value" Placeholder="Values range : 143.5 - 2501" Required="Required"></TD>
+                <TD>Area mean</TD>
+                <TD><Input type="Text" Name="Third Value" Placeholder="Values range:100 - 2500(um2)" Required="Required"></TD>
                 </TR>
                 <TR>
-                <TD>Fourth Value</TD>
-                <TD><Input type="Text" Name="Fourth Value" Placeholder="Values range : 0 - 0.42" Required="Required"></TD>
+                <TD>Concavity mean</TD>
+                <TD><Input type="Text" Name="Fourth Value" Placeholder="Values range : 0 - 1 (Fcc)" Required="Required"></TD>
                 </TR>
                 <TR>
-                <TD>Fifth Value</TD>
-                <TD><Input type="Text" Name="Fifth Value" Placeholder="Values range : 0 - 0.20" Required="Required"></TD>
+                <TD>Concave Points mean</TD>
+                <TD><Input type="Text" Name="Fifth Value" Placeholder="Values range : 0 - 1 (Fcc)" Required="Required"></TD>
                 </TR>
                 <TR>
-                <TD>Sixth Value</TD>
-                <TD><Input type="Text" Name="Sixth Value" Placeholder="Values range : 7.93 - 36.04" Required="Required"></TD>
+                <TD>Radius worst</TD>
+                <TD><Input type="Text" Name="Sixth Value" Placeholder="Values range : 0 - 40 (um)" Required="Required"></TD>
                 </TR>
                 <TR>
-                <TD>Seventh Value</TD>
-                <TD><Input type="Text" Name="Seventh Value" Placeholder="Values range : 50.41 - 251.2" Required="Required"></TD>
+                <TD>Perimeter worst</TD>
+                <TD><Input type="Text" Name="Seventh Value" Placeholder="Values range : 50 - 300 (um)" Required="Required"></TD>
                 </TR>
                 <TR>
-                <TD>Eighth Value</TD>
-                <TD><Input type="Text" Name="Eighth Value" Placeholder="Values range : 185.2 - 4254" Required="Required"></TD>
+                <TD>Area worst</TD>
+                <TD><Input type="Text" Name="Eighth Value" Placeholder="Values range:180 - 4500(um2)" Required="Required"></TD>
                 </TR>
                 <TR>
-                <TD>Ninth Value</TD>
-                <TD><Input type="Text" Name="Ninth Value" Placeholder="Values range : 0 - 1.25" Required="Required"></TD>
+                <TD>Concavity worst</TD>
+                <TD><Input type="Text" Name="Ninth Value" Placeholder="Values range : 0 - 2 (Fcc)" Required="Required"></TD>
                 </TR>
                 <TR>
-                <TD>Tenth Value</TD>
-                <TD><Input type="Text" Name="Tenth Value" Placeholder="Values range : 0 - 0.29" Required="Required"></TD>
+                <TD>Concave Points worst</TD>
+                <TD><Input type="Text" Name="Tenth Value" Placeholder="Values range : 0 - 1(Fcc)" Required="Required"></TD>
                 </TR>
               </Table>
               
-              <Button type="Submit" Class="btn">PREDICT</Button>     
-          
+              <Button type="submit" Class="btn">PREDICT</Button><br><br>  
+              <h3 class="animate-charcter"> {{ prediction_text }}</h3>
             </form>
-            {{ Prediction_text }} 
 </div>
 
 </header>
